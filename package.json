@@ -1,0 +1,28 @@
+{
+  "name": "hackyeah_2020_water_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "axios": "^0.21.0",
+    "clsx": "^1.1.1",
+    "framer-motion": "^2.9.4",
+    "next": "10.0.3",
+    "next-pwa": "^3.1.5",
+    "nextjs-google-fonts": "^1.2.0",
+    "react": "17.0.1",
+    "react-cookie": "^4.0.3",
+    "react-dom": "17.0.1",
+    "react-google-login": "^5.1.25",
+    "react-hook-form": "^6.11.5",
+    "react-icons": "^4.1.0",
+    "sass": "^1.29.0",
+    "styled-components": "^5.2.1"
+  }
+}

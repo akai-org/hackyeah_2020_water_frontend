@@ -1,0 +1,37 @@
+{
+  "googleFonts": {
+    "fonts": [
+      "/fonts/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc9.ttf",
+      "/fonts/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf",
+      "/fonts/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc9.ttf",
+      "/fonts/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf",
+      "/fonts/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf",
+      "/fonts/s/materialicons/v67/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf"
+    ],
+    "style": [
+      "/fonts/style/Roboto.css",
+      "/fonts/style/Montserrat.css",
+      "/fonts/style/Material.css"
+    ]
+  },
+  "arguments": {
+    "fonts": [
+      "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
+      "https://fonts.googleapis.com/css?family=Montserrat&subset=latin-ext&display=swap",
+      "https://fonts.googleapis.com/icon?family=Material+Icons"
+    ],
+    "options": {
+      "publicFolder": "public",
+      "fontsFolder": "fonts",
+      "styleFolder": "style",
+      "resetFolder": true,
+      "prevent": true,
+      "outputData": {
+        "name": "data.json",
+        "path": "public/fonts",
+        "full": "public/fonts/data.json"
+      }
+    }
+  },
+  "buildTime": "2020-11-27T17:23:24.629Z"
+}
