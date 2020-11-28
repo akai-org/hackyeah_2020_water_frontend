@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = (props) => {
   const [cookies, setCookie, removeCookie] = useCookies();
   const [user, setUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
