@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
-import { useCookies } from "react-cookie";
-import { useRouter } from "next/router";
+import React from "react";
 import "../styles/global.scss";
+import { AuthProvider } from "../context/AuthProvider";
+import { ProtectRoute } from "../context/ProtectRoute";
+import Layout from '../layout'
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const [cookies] = useCookies();
-  useEffect(() => {
-    if (router.pathname == "/") {
-      if (cookies.accessToken) {
-        router.push("/profile");
-      }
-    } else if (!cookies.accessToken) {
-      router.push("/");
-    }
-  });
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <AuthProvider>
+        <ProtectRoute>
+          <Component {...pageProps} />
+        </ProtectRoute>
+      </AuthProvider>
+    </Layout>
+  );
 }
 
 export default MyApp;
