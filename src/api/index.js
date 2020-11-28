@@ -1,10 +1,8 @@
 import axios from "axios";
 function getCookie(cname) {
   let name = cname + "=";
-  console.log(document.cookie);
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(";").map((v) => v.trim());
-  console.log(ca);
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == " ") {
@@ -48,3 +46,4 @@ export const useApi = (url, options = {}, method = "get") => {
 export const authGoogleBackend = (accessToken) =>
   send(`${API.base}/social/google-oauth2/`, { accessToken }, "post");
 export const getProfile = () => useApi(`${API.base}/profile/`, {}, "post");
+export const getAchievements = () => useApi(`${API.base}/achievements/`, {}, "post");

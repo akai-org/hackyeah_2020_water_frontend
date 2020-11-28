@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import SEO from "../../seo";
 import { getAchievements } from "../../api";
+const list = [];
+const Box=()=>{
+  <div>
+    
+  </div>
+}
 export default function Home() {
   useEffect(() => {
     (async () => {
@@ -11,8 +17,8 @@ export default function Home() {
   }, []);
   return (
     <>
-      <SEO title="Questions" />
-      <div style={{ textAlign: "center" }}>questions</div>
+      <SEO title="Achievements" />
+      <div style={{ textAlign: "center" }}>achivements</div>
     </>
   );
 }
