@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import Main from "./Main";
 import Alert from "./Alert";
 import Loading from "./Loading";
@@ -16,7 +14,6 @@ const Layout = ({ children }) => {
     <>
       <Alert />
       <Loading />
-      <Header />
       <motion.div
         initial="pageInitial"
         animate="pageAnimate"
@@ -28,7 +25,6 @@ const Layout = ({ children }) => {
       >
         <Main>{children}</Main>
       </motion.div>
-      <Footer />
     </>
   );
 };

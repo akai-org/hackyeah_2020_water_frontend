@@ -3,14 +3,10 @@ import { GoogleLogin } from "react-google-login";
 import classes from "./index.module.scss";
 import { FaUserAlt } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useCookies } from "react-cookie";
-import { useRouter } from "next/router";
 import { useAuth } from "../../context/AuthProvider";
 
 function Login() {
   const { login } = useAuth();
-  const router = useRouter();
-  const [cookies, setCookie] = useCookies();
   const onFailure = (a) => {
     window.setAlert("warning", `Nie uda się zalogować. Powód: ${a.error}`);
     window.loading.close();

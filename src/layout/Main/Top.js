@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-const Header = () => {
+import React from "react";
+const Top = () => {
   return (
     <>
       <div className="custom-shape-divider-top-1606509316">
@@ -57,4 +57,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default Top;

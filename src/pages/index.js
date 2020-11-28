@@ -1,12 +1,11 @@
 import React from "react";
 import SEO from "../seo";
-import LoginBox from "../components/loginBox";
-
+import UserProfile from "../components/UserProfile";
 export default function Home() {
   return (
     <>
-      <SEO title="Strona głowna" />
-      You are loggin in
+      <SEO title="Twój profil" />
+      <UserProfile />
     </>
   );
 }

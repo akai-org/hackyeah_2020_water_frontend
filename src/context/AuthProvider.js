@@ -1,49 +1,51 @@
-import React, { useState, useContext, createContext ,useEffect} from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { authBackend } from "../api";
-
+import { authGoogleBackend } from "../api";
+import { useRouter } from "next/router";
 const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
   const [cookies, setCookie, removeCookie] = useCookies();
-  const [accessToken, setAccessToken] = useState(cookies.accessToken || "");
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log("accessToken p", accessToken);
+  const router = useRouter();
 
   useEffect(() => {
-    login()
-  }, [])
+    console.log("useeffect");
+    if (cookies.token) {
+      login();
+    }
+  }, []);
+
   const login = async (a) => {
+    if (a?.accessToken == undefined) return;
     try {
-      const result = await authBackend(a?.accessToken||accessToken); // bool && obiekt
-      console.log("res google", result);
+      const result = await authGoogleBackend(a.accessToken);
       const { token, user } = result;
-      setAccessToken(token);
       setUser(user);
       setIsLoggedIn(true);
-      setCookie("accessToken", token);
-      // router.push("/profile?success");
+      setCookie("accessToken", a.accessToken);
+      setCookie("token", token + "-" + user.id);
+      window.setAlert("success", "Pomyślnie cię zalogowano!");
+      router.push("/profile");
     } catch (err) {
+      console.log(err);
       console.log("Cos poszlo nie tak :(");
-      setAccessToken("");
-      setUser({});
     } finally {
       window.loading.close();
     }
   };
 
   const logout = async (a) => {
-    setAccessToken("");
-    setUser({});
-    setIsLoggedIn(false);
-    removeCookie("accessToken");
+    // setUser({});
+    // setIsLoggedIn(false);
+    // removeCookie("accessToken");
+    // removeCookie("token");
+    window.setAlert("success", "Pomyślnie cię wylogowano!");
   };
 
   return (
-    <AuthContext.Provider
-      value={{ accessToken, user, isLoggedIn: isLoggedIn, login, logout }}
-    >
+    <AuthContext.Provider value={{ user, isLoggedIn, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );
