@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Main from "./Main";
 import Alert from "./Alert";
 import Loading from "./Loading";
+
 import { motion } from "framer-motion";
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
           pageAnimate: { opacity: 1 },
         }}
       >
+
         <Main>{children}</Main>
       </motion.div>
     </>

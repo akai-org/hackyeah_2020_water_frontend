@@ -37,10 +37,10 @@ export const API = {
 };
 
 export const getUrl = (url, options, method) => send(url, options, method);
-export const useApi = (url, options, method) => {
+export const useApi = (url, options={}, method="get") => {
   const [token, id] = getCookie('token').split("-");
   console.log('cookie:---',token, id)
-  return send(url, { id: id, ...options }, method, {
+  return send(url, { id:+id, ...options }, method, {
     headers: {
       Authorization: `Token ${token || ""}`,
     },
@@ -49,4 +49,4 @@ export const useApi = (url, options, method) => {
 // export const getExperience = () => useApi(`${API.base}/getexp`);
 export const authGoogleBackend = (accessToken) =>
   send(`${API.base}/social/google-oauth2/`, { accessToken }, "post");
-export const getUserInfo = () => useApi(`${API.base}/profile`);
+export const getProfile = () => useApi(`${API.base}/profile/`);

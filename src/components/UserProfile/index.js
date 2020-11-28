@@ -9,23 +9,12 @@ import cn from "classnames";
 
 function index() {
   const { user } = useAuth();
-
-  const u = {
-    avatar_url: "https://lh3.googleusercontent.com/a-/AOh14GiHxXLR1JzgShVH6SBSE0lXoZ-xPzuue7FwP9RJ=s96-c",
-    first_name: "Tobiasz",
-    level: 18,
-  }
-
-  useEffect(() => {
-    // const stat
-  }, []);
-
   console.log(user)
   return (
       <div className={classes.wrapper}>
         <div className={classes.header}>
-          <img className={classes.avatar} src={u.avatar_url}></img>
-          <h2 className={classes.title}>Hello {u.first_name}!</h2>
+          <img className={classes.avatar} src={user.avatar_url}></img>
+          <h2 className={classes.title}>Hello {user.first_name}!</h2>
         </div>
         <div className={classes.stats}>
           <div className={classes.chart}></div>
@@ -43,7 +32,7 @@ function index() {
           </h3>
           <h2 className={classes.level}>
             Level
-            <span>{u.level}</span> 
+            <span>{user.level}</span> 
           </h2>
         </div>
         <div className={classes.buttons}>
