@@ -49,4 +49,4 @@ export const useApi = (url, options={}, method="get") => {
 // export const getExperience = () => useApi(`${API.base}/getexp`);
 export const authGoogleBackend = (accessToken) =>
   send(`${API.base}/social/google-oauth2/`, { accessToken }, "post");
-export const getProfile = () => useApi(`${API.base}/profile/`);
+export const getProfile = () => useApi(`${API.base}/profile/`, {}, "post");

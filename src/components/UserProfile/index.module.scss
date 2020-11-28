@@ -23,13 +23,11 @@
   border-radius: 50%;
 }
 
-.title {
-}
-
 .stats {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 250px;
   justify-content: space-around;
   padding: 10px 15px;
   background-color: rgba(232, 194, 255, 0.3);
@@ -43,6 +41,7 @@
 .money > span {
   margin-left: 30px;
   color: #fff974;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .water {
@@ -53,6 +52,7 @@
 .water > span {
   color: #007ff4;
   margin-left: 30px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
 }
 
 .time {
@@ -62,6 +62,7 @@
 .time > span {
   margin-left: 30px;
   color: #cc00ff;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
 }
 
 .level {

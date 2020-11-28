@@ -27,7 +27,7 @@ export const AuthProvider = (props) => {
       setCookie("accessToken", a.accessToken);
       setCookie("token", token + "-" + user.id);
       window.setAlert("success", "Pomyślnie cię zalogowano!");
-      router.push("/profile");
+      router.push("/");
     } catch (err) {
       console.log(err);
       console.log("Cos poszlo nie tak :(");
