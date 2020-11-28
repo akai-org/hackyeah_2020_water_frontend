@@ -8,18 +8,23 @@ export const AuthProvider = (props) => {
   const [cookies, setCookie, removeCookie] = useCookies();
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     console.log("useeffect");
-    if (cookies.token) {
-      login();
-    }
+    (async () => {
+      if (cookies.accessToken) {
+        console.log("login with token cookie");
+        await login({ accessToken: cookies.accessToken });
+      }
+      setLoading(false);
+    })();
   }, []);
 
   const login = async (a) => {
-    if (a?.accessToken == undefined) return;
     try {
+      if (a?.accessToken == undefined) return;
       const result = await authGoogleBackend(a.accessToken);
       const { token, user } = result;
       setUser(user);
@@ -27,25 +32,25 @@ export const AuthProvider = (props) => {
       setCookie("accessToken", a.accessToken);
       setCookie("token", token + "-" + user.id);
       window.setAlert("success", "Pomyślnie cię zalogowano!");
-      router.push("/profile");
+      router.push("/");
     } catch (err) {
       console.log(err);
-      console.log("Cos poszlo nie tak :(");
+      window.setAlert("error", "Nie udało się zalogować ;(");
     } finally {
       window.loading.close();
     }
   };
 
   const logout = async (a) => {
-    // setUser({});
-    // setIsLoggedIn(false);
-    // removeCookie("accessToken");
-    // removeCookie("token");
+    setUser({});
+    setIsLoggedIn(false);
+    removeCookie("accessToken");
+    removeCookie("token");
     window.setAlert("success", "Pomyślnie cię wylogowano!");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoggedIn, login, logout ,loading}}>
       {props.children}
     </AuthContext.Provider>
   );

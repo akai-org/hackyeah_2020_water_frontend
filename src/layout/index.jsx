@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import Main from "./Main";
 import Alert from "./Alert";
 import Loading from "./Loading";
-
+import Menu from "./Menu";
 import { motion } from "framer-motion";
+import { useAuth } from "../context/AuthProvider";
+import Login from "../pages/login";
 const Layout = ({ children }) => {
+  const { isLoggedIn, loading } = useAuth();
   useEffect(() => {
     window.onoffline = () =>
       window.setAlert("warning", "Stracono połączenie z internetem.");
@@ -15,6 +18,7 @@ const Layout = ({ children }) => {
     <>
       <Alert />
       <Loading />
+      {isLoggedIn && <Menu />}
       <motion.div
         initial="pageInitial"
         animate="pageAnimate"
@@ -24,8 +28,9 @@ const Layout = ({ children }) => {
           pageAnimate: { opacity: 1 },
         }}
       >
-
-        <Main>{children}</Main>
+        <Main>
+          {loading ? <div>Loading</div> : isLoggedIn ? children : <Login />}
+        </Main>
       </motion.div>
     </>
   );

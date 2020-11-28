@@ -9,7 +9,6 @@ import cn from "classnames";
 
 function index() {
   const { user } = useAuth();
-  console.log(user)
   return (
       <div className={classes.wrapper}>
         <div className={classes.header}>

@@ -8,7 +8,9 @@ import { useAuth } from "../../context/AuthProvider";
 function Login() {
   const { login } = useAuth();
   const onFailure = (a) => {
-    window.setAlert("warning", `Nie uda się zalogować. Powód: ${a.error}`);
+    if (a.error !== "idpiframe_initialization_failed") {
+      window.setAlert("warning", `Nie uda się zalogować. Powód: ${a.error}`);
+    }
     window.loading.close();
   };
   const onRequest = () => {
