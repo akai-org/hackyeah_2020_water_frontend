@@ -2,9 +2,9 @@ const withPWA = require("next-pwa");
 
 module.exports = withPWA({
   // reactStrictMode: true,
-//   devIndicators: {
-//     autoPrerender: false,
-//   },
+  devIndicators: {
+    autoPrerender: false,
+  },
   target:"serverless",
   webpack: (config, {isServer}) => {
     if (isServer) {

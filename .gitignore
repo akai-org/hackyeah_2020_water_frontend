@@ -8,3 +8,5 @@
 
 # production
 /build
+/public/sw*
+/public/workbox*
