@@ -3,12 +3,15 @@ import cn from "classnames";
 import classes from "./index.module.scss";
 import { useAuth } from "../../context/AuthProvider";
 import { getProfile } from "../../api";
+import { useRouter } from 'next/router';
 
 // loading indicator
 import BeatLoader from "react-spinners/BeatLoader";
 
 function index() {
   const { user } = useAuth();
+  const router = useRouter();
+
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -56,15 +59,17 @@ function index() {
             </h2>
           </>
         ) : (
-          "Brak danych"
+          "No data found"
         )}
       </div>
       <div className={classes.buttons}>
-        <div className={cn(classes.button, classes.shower)}>
-          Add bath/shower
+        <div onClick={() => router.push("/achievements")}
+         className={cn(classes.button, classes.shower)}>
+          Achivments
         </div>
-        <div className={cn(classes.button, classes.habits)}>
-          Check your habbits
+        <div onClick={() => router.push("/questions")}
+          className={cn(classes.button, classes.habits)}>
+          Run daily quiz
         </div>
       </div>
     </div>

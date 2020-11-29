@@ -27,7 +27,7 @@ export default function Home() {
         setAList(response);
       } catch (err) {
         console.log(err);
-        window.setAlert("error", "Nie udało się pobrać achievementów");
+        window.setAlert("error", "No achievements found");
       } finally {
         setLoading(false);
       }
@@ -72,7 +72,7 @@ export default function Home() {
               );
             }
           )
-        : "Brak aczwimentów"}
+        : "No achievements"}
     </div>
   );
 }
