@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Fab } from "@material-ui/core";
 import { RiMenu4Fill } from "react-icons/ri";
 import { GiExitDoor } from "react-icons/gi";
-import { FaHome, FaUserCog, FaChartBar } from "react-icons/fa";
+import { FaHome, FaUserCog, FaChartBar ,FaRegQuestionCircle} from "react-icons/fa";
 import classes from "./index.module.scss";
 import Link from "next/link";
 import cn from "classnames";
 const list = [
   [<FaHome />, "Home", "/"],
-  [<FaUserCog />, "Profile", "/profile"],
-  [<FaChartBar />, "Achievements", "/achievements"],
+  // [<FaUserCog />, "Profile", "/profile"],
+  [<FaUserCog />, "Questions", "/questions"],
+  [<FaRegQuestionCircle />, "Achievements", "/achievements"],
   [<GiExitDoor />, "Logout", "/logout"],
 ];
 function Menu() {

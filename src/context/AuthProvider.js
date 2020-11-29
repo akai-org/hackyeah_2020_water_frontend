@@ -12,10 +12,9 @@ export const AuthProvider = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("useeffect");
     (async () => {
       if (cookies.accessToken) {
-        console.log("login with token cookie");
+        // console.log("login with token cookie");
         await login({ accessToken: cookies.accessToken }, true);
       }
       setLoading(false);

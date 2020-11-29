@@ -35,6 +35,7 @@ const Footer = () => {
           overflow: hidden;
           line-height: 0;
           transform: rotate(180deg);
+          z-index: 1;
         }
 
         .custom-shape-divider-bottom-1606511046 svg {
