@@ -22,6 +22,7 @@ const send = (url, options = {}, method = "get", headers = {}) =>
         window.setAlert("error", "Brak dostępu do internetu!");
         reject("Brak dostępu do internetu!");
       }
+
       const { data } = await axios[method](url, options, headers);
       resolve(data);
     } catch (e) {
@@ -36,6 +37,7 @@ export const API = {
 export const getUrl = (url, options, method) => send(url, options, method);
 export const useApi = (url, options = {}, method = "get") => {
   const [token, id] = getCookie("token").split("-");
+
   return send(url, { id: +id, ...options }, method, {
     headers: {
       Authorization: `Token ${token || ""}`,
@@ -47,3 +49,4 @@ export const authGoogleBackend = (accessToken) =>
   send(`${API.base}/social/google-oauth2/`, { accessToken }, "post");
 export const getProfile = () => useApi(`${API.base}/profile/`, {}, "post");
 export const getAchievements = () => useApi(`${API.base}/achievements/`, {}, "post");
+export const getQuestions = () => useApi(`${API.base}/questions/`, {}, "get");

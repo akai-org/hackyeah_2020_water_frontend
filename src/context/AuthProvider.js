@@ -16,13 +16,13 @@ export const AuthProvider = (props) => {
     (async () => {
       if (cookies.accessToken) {
         console.log("login with token cookie");
-        await login({ accessToken: cookies.accessToken });
+        await login({ accessToken: cookies.accessToken }, true);
       }
       setLoading(false);
     })();
   }, []);
 
-  const login = async (a) => {
+  const login = async (a, fromCookie) => {
     try {
       if (a?.accessToken == undefined) return;
       const result = await authGoogleBackend(a.accessToken);
@@ -32,7 +32,9 @@ export const AuthProvider = (props) => {
       setCookie("accessToken", a.accessToken);
       setCookie("token", token + "-" + user.id);
       window.setAlert("success", "Pomyślnie cię zalogowano!");
-      router.push("/");
+      if (!fromCookie) {
+        router.push("/");
+      }
     } catch (err) {
       console.log(err);
       window.setAlert("error", "Nie udało się zalogować ;(");
@@ -50,7 +52,7 @@ export const AuthProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, login, logout ,loading}}>
+    <AuthContext.Provider value={{ user, isLoggedIn, login, logout, loading }}>
       {props.children}
     </AuthContext.Provider>
   );
