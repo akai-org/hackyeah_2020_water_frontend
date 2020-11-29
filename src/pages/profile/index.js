@@ -3,16 +3,16 @@ import SEO from "../../seo";
 import { getAchievements } from "../../api";
 export default function Home() {
   useEffect(() => {
-    (async () => {
-      console.log('start')
-      const resp = await getAchievements();
-      console.log(resp);
-    })();
+    // (async () => {
+    //   console.log('start')
+    //   const resp = await getAchievements();
+    //   console.log(resp);
+    // })();
   }, []);
   return (
     <>
-      <SEO title="Questions" />
-      <div style={{ textAlign: "center" }}>questions</div>
+      <SEO title="Profile" />
+      <div style={{ textAlign: "center" }}>Profile</div>
     </>
   );
 }

@@ -33,6 +33,7 @@ const Top = () => {
           width: 100%;
           overflow: hidden;
           line-height: 0;
+          z-index: 1;
         }
 
         .custom-shape-divider-top-1606509316 svg {

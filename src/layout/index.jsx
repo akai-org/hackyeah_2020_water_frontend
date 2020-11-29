@@ -6,6 +6,7 @@ import Menu from "./Menu";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthProvider";
 import Login from "../pages/login";
+import CircularProgress from "@material-ui/core/CircularProgress";
 const Layout = ({ children }) => {
   const { isLoggedIn, loading } = useAuth();
   useEffect(() => {
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
         }}
       >
         <Main>
-          {loading ? <div>Loading</div> : isLoggedIn ? children : <Login />}
+          {loading ? <CircularProgress /> : isLoggedIn ? children : <Login />}
         </Main>
       </motion.div>
     </>

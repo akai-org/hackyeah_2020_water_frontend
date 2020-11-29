@@ -13,7 +13,6 @@ function index() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchStats = async () => {
       try {
         const response = await getProfile();
