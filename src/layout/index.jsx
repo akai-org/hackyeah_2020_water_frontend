@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import Menu from "./Menu";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthProvider";
-import Login from "../pages/login";
+import Login from "../components/LoginBox";
 import CircularProgress from "@material-ui/core/CircularProgress";
 const Layout = ({ children }) => {
   const { isLoggedIn, loading } = useAuth();
