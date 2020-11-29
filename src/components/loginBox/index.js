@@ -5,7 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "../../context/AuthProvider";
 
-function Login() {
+const LoginBox=()=> {
   const { login } = useAuth();
   const onFailure = (a) => {
     if (a.error !== "idpiframe_initialization_failed") {
@@ -44,4 +44,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginBox;
