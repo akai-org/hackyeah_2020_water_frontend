@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthProvider";
 import Login from "../components/LoginBox";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import SEO from '../seo'
 const Layout = ({ children }) => {
   const { isLoggedIn, loading } = useAuth();
   useEffect(() => {
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
     <>
       <Alert />
       <Loading />
+      <SEO title="Water app"/>
       {isLoggedIn && <Menu />}
       <motion.div
         initial="pageInitial"

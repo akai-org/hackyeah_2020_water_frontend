@@ -35,7 +35,7 @@ export const API = {
 };
 
 export const getUrl = (url, options, method) => send(url, options, method);
-export const useApi = (url, options = {}, method = "get") => {
+export const useApi = (url, options = {}, method = "post") => {
   const [token, id] = getCookie("token").split("-");
 
   return send(url, { id: +id, ...options }, method, {
@@ -47,6 +47,7 @@ export const useApi = (url, options = {}, method = "get") => {
 // export const getExperience = () => useApi(`${API.base}/getexp`);
 export const authGoogleBackend = (accessToken) =>
   send(`${API.base}/social/google-oauth2/`, { accessToken }, "post");
-export const getProfile = () => useApi(`${API.base}/profile/`, {}, "post");
-export const getAchievements = () => useApi(`${API.base}/achievements/`, {}, "post");
-export const getQuestions = () => useApi(`${API.base}/questions/`, {}, "get");
+export const getProfile = () => useApi(`${API.base}/profile/`);
+export const getAchievements = () => useApi(`${API.base}/achievements/`);
+export const getQuestions = () => useApi(`${API.base}/questions/`);
+export const sendQuestions = (options) => useApi(`${API.base}/answers/`, options);

@@ -11,3 +11,5 @@
 
 /public/sw*
 /public/workbox*
+# Local Netlify folder
+.netlify

@@ -1,7 +1,7 @@
 module.exports = {
   lang: "pl",
-  siteUrl: "https://krychaxp.pl",
-  website: "krychaxp.pl",
+  siteUrl: "https://swq.netlify.app",
+  website: "swq.netlify.app",
   title: "water",
   description: "water",
   keywords: ["water"],

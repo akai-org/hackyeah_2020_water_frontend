@@ -2,16 +2,13 @@ import React from "react";
 import Helmet from "next/head";
 import siteMetadata from "../../config";
 import { googleFonts } from "../../public/fonts/data.json";
-const SEO = ({ description, title, image, keywords=[], children}) => {
+
+const SEO = ({ description, title, image, keywords = [], children }) => {
   const metaTitle = `${title} | ${siteMetadata.title}`;
   const metaImage = /^http/.test(image)
     ? image
-    : siteMetadata.siteUrl + (image||siteMetadata.image_src);
-  const metaKeywords = [
-    title,
-    ...keywords,
-    ...siteMetadata.keywords,
-  ].join(",");
+    : siteMetadata.siteUrl + (image || siteMetadata.image_src);
+  const metaKeywords = [title, ...keywords, ...siteMetadata.keywords].join(",");
   const metaDescription = description || siteMetadata.description;
   return (
     <Helmet>
@@ -22,7 +19,7 @@ const SEO = ({ description, title, image, keywords=[], children}) => {
       <meta property="og:url" content={siteMetadata.siteUrl} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />
-      <meta property="og:site_name" content="krychaxp.pl" />
+      <meta property="og:site_name" content={siteMetadata.website} />
       <meta property="og:type" content="website" />
 
       <meta name="twitter:creator" content={siteMetadata.author.name} />
@@ -49,7 +46,7 @@ const SEO = ({ description, title, image, keywords=[], children}) => {
       <link rel="apple-touch-icon" href="/favicon.ico" />
       <link rel="robots" href="/robots.txt" />
       <link rel="manifest" href="/manifest.json" />
-      <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      {/* <link rel="sitemap" type="application/xml" href="/sitemap.xml" /> */}
       {siteMetadata.preconnect.map((v) => (
         <link key={v} rel="preconnect dns-prefetch" href={v} />
       ))}
